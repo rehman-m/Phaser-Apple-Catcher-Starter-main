@@ -5,7 +5,7 @@ const sizes={
   width:500,
   height:500
 }
-const speedDown = 200;
+const speedDown = 350;
 
 const gameStartDiv = document.querySelector("#gameStartDiv");
 const gameStartBtn = document.querySelector("#gameStartBtn");
@@ -20,7 +20,7 @@ class GameScene extends Phaser.Scene{
     this.cursor
     this.playerSpeed=speedDown+50
     this.target;
-    this.point= 0;
+    this.points= 0;
     this.textScore
     this.textTime
     this.timedEvent
@@ -59,15 +59,15 @@ this.scene.pause("scene-game")
 
     this.textScore = this.add.text(sizes.width -120 ,10 ,"Score:0",{
       font:"25px Arial",
-      fill:"#0000000",
+      fill:"black",
     } );
 
     this.textTime = this.add.text(10 ,10 ,"Remaining Time : 00",{
       font:"25px Arial",
-      fill:"#0000000",
+      fill:"black",
     } );
 
-    this.timedEvent = this.time.delayedCall(60000,this.gameOver,[], this);
+    this.timedEvent = this.time.delayedCall(30000,this.gameOver,[], this);
 
     this.emitter=this.add.particles(0,0,"money",{
       speed:100,
@@ -115,7 +115,7 @@ this.scene.pause("scene-game")
     this.emitter.start()
     this.target.setX(this.getRandomX());
     this.points++;
-    this.textScore.setText(`Score : ${this.points}`)
+    this.textScore.setText(`Score :${this.points}`)
   }
 
 
@@ -126,9 +126,9 @@ this.scene.pause("scene-game")
     gameWinLoseSpan.textContent="Win"
    } else {
     gameEndScoreSpan.textContent=this.points
-    gameWinLoseSpan.textContent="lose"
+    gameWinLoseSpan.textContent="Lose"
    }
-   gameEndDiv.style.display="flexs"
+   gameEndDiv.style.display="flex"
   }
 
 
