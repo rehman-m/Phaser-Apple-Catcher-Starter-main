@@ -2,8 +2,8 @@ import './style.css'
 import Phaser, { Physics } from 'phaser'
 
 const sizes={
-  width:500,
-  height:500
+  width:620,
+  height:462
 }
 const speedDown = 350;
 
@@ -30,7 +30,7 @@ class GameScene extends Phaser.Scene{
   }
 
   preload(){
-    this.load.image("bg","/assets/bg.png");
+    this.load.image("bg","/assets/bg(2).avif");
     this.load.image("basket","/assets/basket.png");
     this.load.image("apple","/assets/apple.png");
     this.load.image("money","/assets/money.png");
